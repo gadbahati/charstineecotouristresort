@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Charstine EcoTourist Resort — Royal Eco-Luxury Resort</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body { font-family: 'Crimson Text', serif; background: #0a0a0a; color: #f5e6d3; }
+    h1, h2, h3, h4 { font-family: 'Cinzel Decorative', cursive; letter-spacing: 2px; }
+    .gold { color: #C9A34C; }
+    .gold-glow { text-shadow: 0 0 20px #FFD700, 0 0 40px #C9A34C; animation: glow 2s ease-in-out infinite alternate; }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #FFD700, 0 0 20px #C9A34C; }
+      to { text-shadow: 0 0 20px #FFD700, 0 0 40px #C9A34C; }
+    }
+    .btn-gold {
+      background: linear-gradient(145deg, #FFD700, #B8975A);
+      box-shadow: 0 10px 30px rgba(201,163,76,0.4);
+      transition: all 0.4s ease;
+    }
+    .btn-gold:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 20px 40px rgba(255,215,0,0.6);
+    }
+    .border-gold { border: 3px double #C9A34C; }
+    .icon-gold { color: #C9A34C; transition: transform 0.3s ease; }
+    .icon-gold:hover { transform: scale(1.2); }
+
+    /* VIP Tiles */
+    .vip-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      text-align: center;
+      padding: 2rem;
+      border: 3px double #C9A34C;
+      border-radius: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .vip-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(255, 215, 0, 0.3);
+    }
+    .vip-card i {
+      margin-bottom: 1rem;
+    }
+    .vip-card h3 {
+      font-size: 1.5rem;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      word-wrap: break-word;
+    }
+    .vip-card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      opacity: 0.85;
+      word-wrap: break-word;
+      margin: 0 auto;
+      max-width: 100%;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      h2 { font-size: 3rem; line-height: 1.1; }
+      .btn-gold, .border-gold.btn { padding: 1rem 2rem; font-size: 1rem; }
+      .vip-card { padding: 1.5rem; }
+      .vip-card h3 { font-size: 1.25rem; }
+      .vip-card p { font-size: 0.9rem; }
+    }
+
+    /* Floating Live Chat Button Styles */
+    .live-chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366; /* WhatsApp green */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+    }
+    .live-chat-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.6);
+    }
+    .live-chat-label {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: rgba(15, 15, 15, 0.9);
+      color: #f5e6d3;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(10px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    .live-chat-btn:hover .live-chat-label {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 640px) {
+      .live-chat-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+      }
+      .live-chat-label {
+        font-size: 12px;
+        padding: 6px 12px;
+        bottom: 60px;
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-[#f5e6d3] min-h-screen">
+
+  <!-- Royal Header -->
+  <header class="relative bg-gradient-to-b from-black via-[#111] to-black py-10 border-b-4 border-double border-[#C9A34C]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+      <div class="text-center md:text-left">
+        <h1 class="text-5xl md:text-7xl font-black gold gold-glow">CHARSTINE</h1>
+        <p class="text-2xl tracking-widest gold mt-2">ROYAL ECO-LUXURY RESORT</p>
+        <p class="text-sm tracking-widest opacity-80">Kamukuywa • Bungoma • Kenya</p>
+      </div>
+      <nav class="mt-6 md:mt-0 flex flex-wrap justify-center gap-6 md:gap-10 text-lg font-semibold">
+        <a href="index.html" class="gold hover:text-[#FFD700] transition"><i class="fas fa-home mr-2"></i>Home</a>
+        <a href="services.html" class="gold hover:text-[#FFD700]"><i class="fas fa-concierge-bell mr-2"></i>Services</a>
+        <a href="gallery.html" class="gold hover:text-[#FFD700]"><i class="fas fa-images mr-2"></i>Gallery</a>
+        <a href="booking.html" class="gold hover:text-[#FFD700]"><i class="fas fa-calendar-check mr-2"></i>Reserve</a>
+        <a href="contact.html" class="gold hover:text-[#FFD700]"><i class="fas fa-envelope mr-2"></i>Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative py-32 px-6 text-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80"></div>
+    <img src="pic.jpg" alt="Charstine Palace" class="absolute inset-0 w-full h-full object-cover opacity-40 scale-105">
+    
+    <div class="relative max-w-5xl mx-auto">
+      <h2 class="text-4xl sm:text-6xl md:text-8xl font-black gold-glow leading-tight">
+        WHERE NATURE<br>MEETS ROYAL GOLD
+      </h2>
+      <p class="mt-8 text-xl sm:text-2xl tracking-wider opacity-90">
+        An exclusive sanctuary of sustainable opulence in the shadow of Mount Elgon
+      </p>
+      <div class="mt-12 flex flex-col sm:flex-row gap-6 sm:gap-8 justify-center">
+        <a href="booking.html" class="btn-gold px-8 sm:px-12 py-4 sm:py-6 rounded-none text-black font-bold text-lg sm:text-xl tracking-widest">
+          RESERVE YOUR SUITE
+        </a>
+        <a href="gallery.html" class="border-gold border-4 px-8 sm:px-12 py-4 sm:py-6 text-[#C9A34C] font-bold text-lg sm:text-xl tracking-widest hover:bg-[#C9A34C] hover:text-black transition">
+          VIEW THE PALACE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIP Tiles Section -->
+  <section class="py-20 bg-gradient-to-b from-black to-[#111] border-t-4 border-b-4 border-double border-[#C9A34C]">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10 text-center px-6">
+      <div class="vip-card">
+        <i class="fas fa-crown text-6xl icon-gold"></i>
+        <h3>Royal Suites</h3>
+        <p>24-Karat Luxury Experience with Majestic Comfort</p>
+      </div>
+      <div class="vip-card">
+        <i class="fas fa-gem text-6xl icon-gold"></i>
+        <h3>Gilded Dining</h3>
+        <p>Gold-Leaf Culinary Masterpieces in Elegant Ambience</p>
+      </div>
+      <div class="vip-card">
+        <i class="fas fa-mountain text-6xl icon-gold"></i>
+        <h3>Mount Elgon</h3>
+        <p>Private Excursions Amidst Majestic Landscapes</p>
+      </div>
+      <div class="vip-card">
+        <i class="fas fa-key text-6xl icon-gold"></i>
+        <h3>Royal Concierge</h3>
+        <p>24/7 Personalized Service Tailored for You</p>
+      </div>
+      <div class="vip-card">
+        <i class="fas fa-camera-retro text-6xl icon-gold"></i>
+        <h3>Photography & Videography</h3>
+        <p>Capture Every Moment with Cinematic Excellence</p>
+      </div>
+      <div class="vip-card">
+        <i class="fas fa-wine-glass-alt text-6xl icon-gold"></i>
+        <h3>Private Wine & Gold-Tasting Lounge</h3>
+        <p>Exclusive Gold-Themed Tastings for Connoisseurs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative bg-black border-t-8 border-double border-[#C9A34C] py-16 mt-24">
+    <div class="absolute inset-0 opacity-20"><div class="absolute inset-0 bg-gradient-to-t from-[#C9A34C] to-transparent"></div></div>
+    <div class="relative max-w-7xl mx-auto px-6 text-center">
+      <h2 class="text-5xl md:text-7xl font-black gold gold-glow mb-8">CHARSTINE</h2>
+      <p class="text-xl tracking-widest text-amber-200 mb-10">Royal Eco-Luxury Resort • Kamukuywa, Bungoma • Kenya</p>
+      <!-- Contact Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center gap-6 mb-12">
+        <a href="tel:+0118298056" class="btn-gold px-8 sm:px-12 py-4 sm:py-6 text-black font-bold text-lg sm:text-xl tracking-widest text-center hover:shadow-2xl transform hover:scale-105 transition">
+          Call Us
+        </a>
+        <a href="https://wa.me/254118298056" target="_blank" class="btn-gold px-8 sm:px-12 py-4 sm:py-6 text-black font-bold text-lg sm:text-xl tracking-widest text-center hover:shadow-2xl transform hover:scale-105 transition">
+          WhatsApp
+        </a>
+      </div>
+      <div class="flex justify-center gap-8 mb-10 flex-wrap text-4xl">
+        <a href="https://facebook.com/charstine" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/charstine" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/0118298056" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://x.com/charstine" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://tiktok.com/@charstine" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-tiktok"></i></a>
+        <a href="https://youtube.com/@charstine" target="_blank" class="icon-gold hover:text-[#FFD700] transform hover:scale-125 transition"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="text-amber-100 space-y-3 text-lg">
+        <p>Telephone & WhatsApp: <span class="gold font-bold">0118298056</span></p>
+        <p>Royal Correspondence: <span class="gold font-bold">crown@charstine.co.ke</span></p>
+      </div>
+      <p class="mt-12 text-amber-300 tracking-widest text-sm">© 2025 Charstine Royal Eco-Luxury Resort — All Rights Reserved<br><span class="text-amber-400">Where Even the Sun Rises in Gold</span></p>
+    </div>
+  </footer>
+
+  <!-- Floating Live Chat -->
+  <a href="https://wa.me/0118298056?text=Hello%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" class="live-chat-btn">
+    <i class="fab fa-whatsapp text-3xl"></i>
+    <span class="live-chat-label">Live Chat</span>
+  </a>
+
+</body>
+</html>

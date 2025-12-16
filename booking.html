@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Royal Booking — Charstine Eco-Tourist Resort</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    body {
+      background-image: url('https://moderncampground.com/wp-content/uploads/2025/05/luxury-safari-glamping-sunset-news-stock-scaled.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #f5e6d3;
+      font-family: 'Crimson Text', serif;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1, h2, h3 {
+      font-family: 'Cinzel Decorative', cursive;
+    }
+    .gold {
+      color: #C9A34C;
+      text-shadow: 0 0 20px #FFD700, 0 0 30px #FFD700;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700; }
+      to { text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700; }
+    }
+    .eco-green { color: #228B22; }
+    .card {
+      background: rgba(15, 15, 15, 0.85);
+      border: 4px double #C9A34C;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: scale(1.02); }
+    .btn-gold {
+      background: linear-gradient(145deg, #FFD700, #B8975A);
+      box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+      transition: all 0.3s ease;
+    }
+    .btn-gold:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 50px rgba(255, 215, 0, 0.6);
+    }
+    input, select, textarea {
+      background: #ffffff;
+      color: #000000 !important;
+      border: 1px solid #C9A34C;
+      transition: border-color 0.3s ease;
+    }
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%208%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095.1c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.9z%22/%3E%3C/svg%3E');
+      background-repeat: no-repeat;
+      background-position: right 1rem top 50%;
+      background-size: 0.65rem auto;
+    }
+    select option { background: #ffffff; color: #000000; }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #FFD700;
+      box-shadow: 0 0 10px #FFD700;
+      color: #000000 !important;
+    }
+    textarea::placeholder { color: #555555; font-style: italic; }
+    .promo-text { font-style: italic; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .live-chat-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #25D366;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+    }
+    .live-chat-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 15px rgba(37,211,102,0.6);
+    }
+    .live-chat-label {
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      background: rgba(15,15,15,0.9);
+      color: #f5e6d3;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 14px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      transform: translateY(10px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .live-chat-btn:hover .live-chat-label { opacity: 1; transform: translateY(0); }
+    @media (max-width: 640px) {
+      .live-chat-btn { width:50px; height:50px; bottom:15px; right:15px; }
+      .live-chat-label { font-size:12px; padding:6px 12px; bottom:60px; }
+    }
+  </style>
+</head>
+<body>
+<section class="relative py-20 text-center">
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+  <div class="relative z-10">
+    <h1 class="text-6xl md:text-9xl gold mb-4">Discover Paradise</h1>
+    <p class="text-2xl md:text-4xl eco-green promo-text mb-8">At Charstine Eco-Tourist Resort – Where Luxury Meets Nature in Bungoma, Kenya</p>
+    <a href="#booking" class="btn-gold inline-block px-8 py-4 text-black font-bold text-xl rounded hover:scale-105 transition">Book Your Royal Escape Now</a>
+  </div>
+</section>
+
+<header class="py-10 text-center border-b-8 border-double border-[#C9A34C]">
+  <h1 class="text-5xl md:text-8xl gold">ROYAL BOOKINGS</h1>
+  <nav class="mt-6 flex justify-center gap-6 md:gap-10 text-lg md:text-xl flex-wrap">
+    <a href="index.html" class="gold hover:text-[#FFD700]"><i class="fas fa-home mr-2"></i>Home</a>
+    <a href="services.html" class="gold hover:text-[#FFD700]"><i class="fas fa-concierge-bell mr-2"></i>Services</a>
+    <a href="gallery.html" class="gold hover:text-[#FFD700]"><i class="fas fa-images mr-2"></i>Gallery</a>
+    <a href="booking.html" class="text-[#FFD700] font-bold"><i class="fas fa-calendar-check mr-2"></i>Reserve</a>
+  </nav>
+</header>
+
+<section id="booking" class="py-16 px-4 max-w-4xl mx-auto">
+  <h2 class="text-center text-4xl md:text-6xl gold mb-12 animate-fade-in">Royal Booking Form</h2>
+
+  <div class="grid md:grid-cols-3 gap-6 mb-12">
+    <div class="card text-center">
+      <i class="fas fa-leaf text-5xl eco-green mb-4"></i>
+      <h3 class="text-2xl gold">Eco-Luxury</h3>
+      <p class="text-lg promo-text">Sustainable elegance amidst Kenya's stunning landscapes.</p>
+    </div>
+    <div class="card text-center">
+      <i class="fas fa-star text-5xl gold mb-4"></i>
+      <h3 class="text-2xl gold">5-Star Comfort</h3>
+      <p class="text-lg promo-text">Imperial suites with breathtaking views.</p>
+    </div>
+    <div class="card text-center">
+      <i class="fas fa-mountain text-5xl eco-green mb-4"></i>
+      <h3 class="text-2xl gold">Adventures Await</h3>
+      <p class="text-lg promo-text">Conquer Mount Elgon with exclusive tours.</p>
+    </div>
+    <div class="card text-center">
+      <i class="fas fa-camera text-5xl gold mb-4"></i>
+      <h3 class="text-2xl gold">Capture the Magic</h3>
+      <p class="text-lg promo-text">Immortalize your royal experiences with elite photography and videography, crafting timeless visual masterpieces against Kenya's golden landscapes.</p>
+    </div>
+  </div>
+
+  <div class="card text-center mb-12 space-y-6">
+    <h3 class="text-3xl gold">Manual Booking</h3>
+    <p class="text-xl">Call us now: <a href="tel:+254118298056" class="gold font-bold underline">+254 118298056</a></p>
+    <p class="text-xl">Or WhatsApp directly: <a href="https://wa.me/254118298056" class="gold font-bold underline">Chat on WhatsApp</a></p>
+  </div>
+
+  <form id="bookingForm" class="card space-y-6">
+    <div>
+      <label class="gold text-lg"><i class="fas fa-user mr-2"></i>Full Name</label>
+      <input type="text" name="name" required class="w-full p-4 rounded" />
+    </div>
+    <div>
+      <label class="gold text-lg"><i class="fas fa-phone mr-2"></i>Phone Number</label>
+      <input type="tel" name="phone" required class="w-full p-4 rounded" />
+    </div>
+    <div>
+      <label class="gold text-lg"><i class="fas fa-concierge-bell mr-2"></i>Select Service</label>
+      <select name="service" required class="w-full p-4 rounded">
+        <option>Imperial Suites & Rooms</option>
+        <option>Aurum Bar & Restaurant</option>
+        <option>Elgon Conquest Adventures</option>
+        <option>Conference Halls & Meeting Rooms</option>
+        <option>Weddings & Special Events</option>
+        <option>Premium Catering Services</option>
+        <option>Exclusive VIP Lounge</option>
+        <option>Laundry Services</option>
+        <option>Les Clefs d’Or Concierge</option>
+        <option>Elite Photography & Videography</option>
+      </select>
+    </div>
+    <div>
+      <label class="gold text-lg"><i class="fas fa-calendar mr-2"></i>Preferred Date</label>
+      <input type="date" name="date" required class="w-full p-4 rounded" />
+    </div>
+    <div>
+      <label class="gold text-lg"><i class="fas fa-comment mr-2"></i>Additional Message</label>
+      <textarea name="message" rows="4" class="w-full p-4 rounded" placeholder="Please provide a detailed description of your booking requirements..."></textarea>
+    </div>
+    <button type="submit" class="btn-gold w-full py-4 text-black font-bold text-xl rounded hover:scale-105 transition">
+      Submit Booking via WhatsApp
+    </button>
+  </form>
+</section>
+
+<footer class="border-t-8 border-double border-[#C9A34C] py-12 text-center relative z-10">
+  <p class="text-lg tracking-widest text-amber-200">Charstine Royal Eco-Luxury Resort • Bungoma • Kenya</p>
+  <p class="mt-4 text-amber-400 text-sm">© 2025 Charstine — Where Even the Sun Rises in Gold</p>
+</footer>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // 1. Capture the values from the form
+  const name = document.querySelector('[name="name"]').value.trim();
+  const phone = document.querySelector('[name="phone"]').value.trim();
+  const service = document.querySelector('[name="service"]').value.trim();
+  const date = document.querySelector('[name="date"]').value.trim();
+  const message = document.querySelector('[name="message"]').value.trim();
+
+  // 2. Build the message string using regular text
+  // We use \n for new lines. The * surrounds text to make it Bold in WhatsApp.
+  let messageBody = `*ROYAL BOOKING REQUEST*\n\n`;
+  messageBody += `*Name:* ${name}\n`;
+  messageBody += `*Phone:* ${phone}\n`;
+  messageBody += `*Service:* ${service}\n`;
+  messageBody += `*Preferred Date:* ${date}\n`;
+  messageBody += `*Message:* ${message || "No additional details"}`;
+
+  // 3. Encode the entire message to be URL safe
+  const encodedMessage = encodeURIComponent(messageBody);
+
+  // 4. Create the final WhatsApp URL
+  const whatsappUrl = `https://wa.me/254118298056?text=${encodedMessage}`;
+
+  // 5. Open WhatsApp
+  // window.location.href is better for mobile devices to trigger the app
+  window.location.href = whatsappUrl;
+});
+</script>
+
+<a href="https://wa.me/254118298056?text=Hello%2C%20I%20would%20like%20to%20make%20an%20enquiry." target="_blank" class="live-chat-btn">
+  <i class="fab fa-whatsapp text-3xl"></i>
+  <span class="live-chat-label">Live Chat</span>
+</a>
+
+</body>
+</html>
