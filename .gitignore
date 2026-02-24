@@ -1,6 +1,10 @@
-.next/
-out/
+# .gitignore for charstineecotouristresort
+
+# Ignore environment variables
+.env.local
+
+# Ignore node_modules folder
 node_modules/
-dist/
-*.log
-*.env.local
+
+# Ignore Next.js build output
+.next/
